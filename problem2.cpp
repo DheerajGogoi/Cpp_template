@@ -7,81 +7,27 @@ ios::sync_with_stdio(0);
 	cin.tie(0);
 
 #ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+	freopen("input.txt", "r", stdin); // taking input from a file named input.txt
+	freopen("output.txt", "w", stdout); // printing output to a file named output.txt
 #endif
 
 //code here
 
-     int t;
-     cin >> t;
+     int T;
+     cin >> T;
+	// T --> number if test cases
 
-	 for (int b = 0; b < t; b++) {
-		int n,p;
-         cin >> n >> p;
-         int v[n];
-         for(int i=0; i<n; i++){
-             cin >> v[i];
-         }
-
-        //start
-
-        int sum = 0;
+	 for (int b = 0; b < T; b++) {
 		
-		int smallestDiff = 1;
-		
-		int fcount = 0;
-		int scount = 0;
-		int smallestSum = 0;
-		
-		for(int a = 1; a <= n-1; a++) {
-			fcount++;
-			for(int i = 0; i < n - a; i++) {
-				scount++;
-				for(int x = i; x <= i+a; x++) { // sum from i to i+a
-					sum = sum + v[x];
-				}
-                //cout << sum;
-
-				if(sum == p) {
-					int indexSum = i+a;
-					for(int x = i; x <= i+a; x++) {
-						smallestSum = smallestSum + v[x];
-					}
-					cout << "Case #" << b+1<< ": " << i << " " <<indexSum << " " << "--> " << smallestSum << "\n";
-					return (0);
-				}
-				
-				else if(sum > p) {
-
-					if(smallestDiff == sum - p) {
-						int indexSum = i+a;
-						for(int x = i; x <= i+a; x++) {
-							smallestSum = smallestSum + v[x];
-						}
-						cout << "Case #" << b+1<< ": " << i << " " << indexSum << " " << "--> " << smallestSum << "\n";
-						return (0);
-					}
-					else if(smallestDiff > sum - p) {
-						smallestDiff = sum - p;
-					}
-					else {
-						smallestDiff = sum - p;
-					}
-					
-				}
-				
-				sum = 0;
-				
-				//cout << "second count : " << scount;
-				
-			}
-			
-			//cout << "first count : " << fcount;
-			
-		}
-	 }
-
+		 int n;
+		 cin >> n;
+		 // N --> size of the input Array
+		 int ar[n];
+		 for(int i=0; i<n; i++){
+		     cin >> ar[i];
+		 }
+		 
+	// Start code from here
 
 
     return 0;
